@@ -1,0 +1,31 @@
+{
+  "name": "make-a-difference",
+  "version": "1.0.0",
+  "description": "Check which individual actions will make a difference and which won't..",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "app": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/steve-zissou/make-a-difference.git"
+  },
+  "author": "steve zissou",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/steve-zissou/make-a-difference/issues"
+  },
+  "homepage": "https://github.com/steve-zissou/make-a-difference#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.13",
+    "validation": "0.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
