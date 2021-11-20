@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
-import '../App.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import {bookType} from '../localTypes';
 import BookCard from './BookCard';
+import '../App.css';
 
 
 const ShowBookList = () => {
-  const [books, setBooks] = useState([])
+  const [books, setBooks] = useState<bookType[]>([])
 
   useEffect(() => {
     axios
