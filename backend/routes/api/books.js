@@ -1,8 +1,8 @@
-const express = require('express');
-const router = express.Router();
+import { Router } from 'express';
+const router = Router();
 
 // Load Book model
-const Book = require('../../models/Book');
+import Book from '../../models/Book.js';
 
 // @route GET api/books/test
 // @description tests books route
@@ -56,4 +56,4 @@ router.delete('/:id', (req, res) => {
     .catch(err => res.status(404).json({ error: 'No such a book' }));
 });
 
-module.exports = router;
+export default router;

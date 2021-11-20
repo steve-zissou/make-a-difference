@@ -1,12 +1,13 @@
-const express = require('express');
-const connectDB = require('./config/db');
-var cors = require('cors');
+import express, { json } from 'express';
+import cors from 'cors';
+
+import connectDB from './config/db.js';
 
 // routes
-const books = require('./routes/api/books');
+import books from './routes/api/books.js';
 
 const app = express();
-app.use(express.json());
+app.use(json());
 
 // Connect Database
 connectDB();
