@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import {bookType} from '../localTypes';
-import '../App.css';
 import axios from 'axios';
+
+import {bookType} from '../localTypes';
+import {getDateString} from '../helpers';
+import '../App.css';
 
 const BookItem = ({book: {title, description, isbn, author, publisher, publishedDate}}) => {
   return (
@@ -54,7 +56,7 @@ const ShowBookDetails = () => {
     .get(`http://localhost:8082/api/books/${params.id}`)
     .then(res => {
       const data = {...res.data}
-      data.publishedDate = data.published_date
+      data.publishedDate = getDateString(data.published_date)
       delete data.published_date
       setBook(data)
     })

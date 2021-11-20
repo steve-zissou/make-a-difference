@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
+import {getDateString} from '../helpers';
 import '../App.css';
 
 const UpdateBookInfo = () => {
@@ -22,13 +23,13 @@ const UpdateBookInfo = () => {
       setIsbn(res.data.isbn)
       setAuthor(res.data.author)
       setDescription(res.data.description)
-      setPublishedDate(res.data.published_date)
+      setPublishedDate(getDateString(res.data.published_date))
       setPublisher(res.data.publisher)
     })
     .catch(err => {
       console.log(`Error from UpdateBookInfo ${err}`);
     })
-  }, [params, title, isbn, author, description, publishedDate, publisher])
+  }, [params])
 
   const handleChange = (e) => {
     const name = e.target.name;
