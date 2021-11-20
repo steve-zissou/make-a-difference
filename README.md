@@ -17,4 +17,15 @@ Run the backend with:
 
 `cd backend`
 
+`npm install`
+
 `npm run app`
+
+### Frontend
+Run the frontend with:
+
+`cd frontend`
+
+`npm install`
+
+`npm start`
