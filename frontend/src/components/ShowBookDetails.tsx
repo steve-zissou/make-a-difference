@@ -4,7 +4,7 @@ import {bookType} from '../localTypes';
 import '../App.css';
 import axios from 'axios';
 
-const BookItem = ({book}) => {
+const BookItem = ({book: {title, description, isbn, author, publisher, publishedDate}}) => {
   return (
     <div>
       <table className="table table-hover table-dark">
@@ -12,32 +12,32 @@ const BookItem = ({book}) => {
           <tr>
             <th scope="row">1</th>
             <td>Title</td>
-            <td>{ book.title }</td>
+            <td>{ title }</td>
           </tr>
           <tr>
             <th scope="row">2</th>
             <td>Author</td>
-            <td>{ book.author }</td>
+            <td>{ author }</td>
           </tr>
           <tr>
             <th scope="row">3</th>
             <td>ISBN</td>
-            <td>{ book.isbn }</td>
+            <td>{ isbn }</td>
           </tr>
           <tr>
             <th scope="row">4</th>
             <td>Publisher</td>
-            <td>{ book.publisher }</td>
+            <td>{ publisher }</td>
           </tr>
           <tr>
             <th scope="row">5</th>
             <td>Published Date</td>
-            <td>{ book.published_date }</td>
+            <td>{ publishedDate }</td>
           </tr>
           <tr>
             <th scope="row">6</th>
             <td>Description</td>
-            <td>{ book.description }</td>
+            <td>{ description }</td>
           </tr>
         </tbody>
       </table>
@@ -53,7 +53,10 @@ const ShowBookDetails = () => {
     axios
     .get(`http://localhost:8082/api/books/${params.id}`)
     .then(res => {
-      setBook(res.data)
+      const data = {...res.data}
+      data.publishedDate = data.published_date
+      delete data.published_date
+      setBook(data)
     })
     .catch(err => {
       console.log("Error from ShowBookDetails");

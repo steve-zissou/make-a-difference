@@ -9,5 +9,6 @@ export type bookType = {
     isbn: string;
     title: string;
     description: string;
-    publisher: string
+    publishedDate: Date;
+    publisher: string;
 };
